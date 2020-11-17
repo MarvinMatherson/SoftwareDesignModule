@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="./index.php">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
@@ -54,37 +54,42 @@
 </div>
 
 <div class="container">
-  <h1 class="mt-5 mb-5">Bikes</h1>
-
-  <a href="./new.php" class="btn btn-primary">Create new bike</a>
-
-  <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Price</th>
-    </tr>
-  </thead>
-  <tbody>
-
+  <h1 class="mt-5 mb-5">Create new Bike</h1>
 <?php
-  $stmt = $Conn->prepare('SELECT * FROM Bikes');
-  $stmt->execute();
-  $bikes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-  foreach ($bikes as $key => $bike){
+if($_POST['bike_name']) {
+  // process the form
+  $data = [
+    'bike_name' => $_POST['bike_name'],
+    'bike_price' => $_POST['bike_price']
+  ];
+
+  $query = 'INSERT INTO Bikes (bike_name, bike_price) VALUES(:bike_name, :bike_price)';
+  $stmt = $Conn->prepare($query);
+  $stmt->execute($data);
+
  ?>
- <tr>
-   <th scope="row"><?php echo $bike['bike_id']; ?></th>
-   <td><?php echo $bike['bike_name'];?></td>
-   <td><?php echo $bike['bike_price'];?></td>
- </tr>
+ <div class="alert alert-success" role="alert">
+  Your bike has been created.
+</div>
+
 <?php
 }
  ?>
-  </tbody>
-</table>
+
+  <form action="" method="post">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Bike Name</label>
+      <input type="text" class="form-control" id="bikename"  name="bike_name" placeholder="Enter Bike Name">
+    </div>
+<div class="form-group">
+      <label for="exampleInputEmail1">Bike Price</label>
+      <input type="text" class="form-control" id="bikeprice"  name="bike_price" placeholder="Enter Bike Price">
+</div>
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+
+
 </div>
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
