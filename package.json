@@ -1,0 +1,15 @@
+{
+  "name": "SoftwareDesignModule",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MarvinMatherson/SoftwareDesignModule.git",
+  "author": "Marvin Matherson <55834622+MarvinMatherson@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "grunt": "^1.3.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "^3.1.0",
+    "node-sass": "^5.0.0"
+  }
+}
