@@ -1,0 +1,123 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+.warning{
+  color: #00ACC1;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  width:100%;
+  height:auto;
+  margin-top: 10px;
+}
+
+
+.first-header{
+  background-color:#00ACC1;
+  height: auto;
+  display:flex;
+  flex-wrap: wrap-reverse;
+  flex-direction: row-reverse;
+  align-items: center;
+  flex-direction: row;
+}
+
+#header{
+
+display: flex;
+justify-content: flex-start;
+}
+
+#search{
+  display: flex;
+  align-items: center;
+}
+.MainSearch{
+  width: 410%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding-left: 20px;
+  margin-left: 60px;
+  margin-right: 20px;
+
+}
+
+#icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+#icon h3{
+  margin-top: 3px;
+font-size: 20px;
+margin-left: 10px;
+margin-right: 10px;
+color: white;
+}
+
+.second-header{
+  text-align: center;
+  width: 100%;
+  height:auto;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  margin-right: 25px;
+}
+
+.second-header h3{
+  text-align: center;
+  margin-top: 3px;
+  color: red;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+i{
+  font-size: 40px;
+  color: white;
+}
+
+
+.guarantee{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  background-color: red;
+  width: 100%;
+  height: auto;
+}
+
+.guarantee p{
+margin-top: 2px;
+font-size: 15px;
+color: white;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+#icon h3 {
+   font-size: 40px;
+   margin-right: 100px;
+  }
+
+.MainSearch{
+  width: 50%;
+}
+}
+
+@media only screen and (max-width: 767px) {
+
+
+
+}

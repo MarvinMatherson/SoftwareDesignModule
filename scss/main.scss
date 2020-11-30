@@ -1,4 +1,39 @@
-@import "vendors/bootstrap";
+@charset "UTF-8";
+
+// 1. Configuration and helpers
+@import
+  'abstracts/variables',
+  'abstracts/functions',
+  'abstracts/mixins';
+
+// 2. Vendors
+@import
+
+"vendors/bootstrap";
+
+// 3. Base stuff
+@import
+  'base/base',
+  'base/fonts',
+  'base/typography',
+  'base/helpers';
+
+// 4. Layout-related sections
+@import
+  'layout/header',
+  'layout/footer';
+
+// 5. Components
+@import
+  'components/button';
+
+// 6. Page-specific styles
+@import
+  'pages/home';
+
+// 7. Themes
+@import
+  'themes/default';
 
 
 h1{
@@ -19,102 +54,7 @@ flex-direction: row;
 }
 
 
-.warning{
-  color: #00ACC1;
-  display: flex;
-  justify-content: center;
-  width:100%;
-  height: 30px;
-}
-
-
-.first-header{
-  background-color:#00ACC1;
-  height: 80px;
-  display:flex;
-  align-items: center;
-  flex-direction: row;
-}
-
-#header{
-
-display: flex;
-justify-content: flex-start;
-}
-
-#search{
-  display: flex;
-  align-items: center;
-}
-.MainSearch{
-  width: 410%;
-  height: 40px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  padding-left: 20px;
-  margin-left: 60px;
-}
-
-#icon{
-  display: flex;
-  align-items: center;
-  justify-content: center;;
-}
-
-
-#icon h3{
-  margin-top: 3px;
-text-align: center;
-font-size: 20px;
-margin-left: 10px;
-margin-right: 10px;
-color: white;
-}
-
-.second-header{
-  width: 100%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  margin-right: 25px;
-}
-
-.second-header h3{
-  margin-top: 3px;
-  color: red;
-  margin-left: 10px;
-  font-size: 20px;
-}
-
-i{
-  font-size: 40px;
-  color: white;
-}
-
-
-.guarantee{
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  background-color: red;
-  width: 100%;
-  height: 30px;
-}
-
-.guarantee p{
-margin-top: 2px;
-font-size: 15px;
-color: white;
-}
 
 .carousel-item{
  height: 500px;
-}
-
-.bikeItem{
-margin-bottom: 20px;
-width: 300px;
-height: 40px;
-background-color:red;
 }
