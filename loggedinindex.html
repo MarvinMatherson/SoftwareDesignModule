@@ -1,9 +1,3 @@
-<?php
-  require_once(__DIR__.'/includes/db.php');
-
- 
-  ?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -13,20 +7,19 @@
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
   </head>
+  <body>
   <div class="warning"><p>All our stores remain open throughout the pandemic!</p></div>
 <div class="first-header">
    <div class="container">
      <div class="row">
     <div class="col-md-8 d-flex p-2 d-flex align-items-center" id="header">
-    <h1> BikeOn</h1>
-    <form action="" method="get">
-    <input type="text" placeholder="Search" class="MainSearch" name="search"/>
-    </form>
+    <a href="./loggedinindex.html"><h1> BikeOn</h1></a>
+    <input type="text" placeholder= "Search" class="MainSearch"></input>
   </div>
   <div class="col-md-4" id="icon">
     <h3>Wishlist</h3>
     <h3>Language</h3>
-    <i class="las la-user-circle"></i>
+    <a href="./profile.html"><i class="las la-user-circle"></i></div></a>
   </div>
 </div>
 </div>
@@ -54,51 +47,53 @@
     <img src="./images/bike1.jpg" width="100%">
   </div>
   <div class="col-lg-6">
-    <h1>Welcome to BikeOn, the home of all things bikes! </h1>
-    <p->Here you can fins all the infomation you may need to concerning any bikes</p->
+    <h1>Welcome Back to BikeOn. the home of all things bikes! </h1>
+    <p->Here you can find all the infomation you may need to concerning any bikes</p->
 </div>
 </div>
 </div>
-  
-  
+
+
 </div>
+
+
+
+
+
 <div class="container">
   <div class="owl-carousel owl-theme">
-<div class="row">  
+<div class="row">
 
-
-
-
-<?php
-  $stmt = $Conn->prepare('SELECT * FROM Bikes');
-  $stmt->execute();
-  $bikes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-  foreach ($bikes as $key => $bike){
- ?>
- <div class="col-lg-4">
- <div id="bikeItem">
-   <img src="./images/biker.jpg" width="100%"></img>
-   <p class="bikename"><?php echo $bike['bike_name'];?></p>
-   <p class="bikeprice"><?php echo $bike['bike_price'];?></p>
+  <div class="col-lg-4">
+  <div class="bikeItem">
+      <img src="./images/biker.jpg" width="20%"></img>
+        <h3>Bike name</h3>
+        <p>Bike Infomation</p>
+        <input type="button" value="see more"></input>
   </div>
   </div>
-<?php
-}
- ?>
-
-
-
-     
-
-
-
-
-
-
+  <div class="col-lg-4">
+    <div class="bikeItem">
+      <img src="./images/biker.jpg" width="10%"></img>
+        <h3>Bike name</h3>
+        <p>Bike Infomation</p>
+        <input type="button" value="see more"></input>
+  </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="bikeItem">
+      <img src="./images/biker.jpg" width="100%"></img>
+        <h3>Bike name</h3>
+        <p>Bike Infomation</p>
+        <input type="button" value="see more"></input>
+  </div>
+  </div>
 </div>
 </div>
 </div>
+
+
+
 <footer>
   <div class="mainfooter">
 </footer>
@@ -121,6 +116,3 @@
 
 </body>
 </html>
-
-
-
