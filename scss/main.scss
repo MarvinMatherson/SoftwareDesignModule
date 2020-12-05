@@ -29,7 +29,8 @@
 
 // 6. Page-specific styles
 @import
-  'pages/home';
+  'pages/home',
+  'pages/login';
 
 // 7. Themes
 @import
@@ -50,4 +51,9 @@ flex-direction: row;
 
 .carousel-item{
  height: 500px;
+}
+
+
+textarea{
+  resize: none;
 }

@@ -40,10 +40,10 @@
 </div>
 
   <div class="container">
+    <div class="jumbotron" id="join">
 <div class="row">
 <div class="col-lg-6">
 <form>
-
     <h2>Login here</h2>
   <div class="form-group">
     <label for="exampleInputEmail1">Username</label>
@@ -61,7 +61,7 @@ Sumbit
 
 
 <div class="col-lg-6">
-<h2>Sign up here!</h2>
+<h2>Sign up here</h2>
   <div class="form-group">
     <label for="exampleInputEmail1">Username</label>
     <input type="username" class="form-control" id="exampleInputEmail2">
@@ -70,17 +70,24 @@ Sumbit
     <label for="exampleInputPassword1">Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1">
   </div>
-  <button type="button" id="submitme" class="btn btn-primary" onclick="mysignup()" data-toggle="modal" data-target="#exampleModal2">
+  <button type="button" id="submitme" class="btn btn-primary" onclick="mysignup()"></button>
   Sumbit
   </button>
-  </div>
-</div>
-
-</div>
+  
   </div>
 
+</div>
+
+  </div>
+
+<h2 class="promise">By joining us, we won't share your data.</h2>
+<div class="jumbotron" id="nowords">
+<h3>Action Failed.</h3>
+<p>You need to enter a value.</p>
+</div>
+</div>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -113,7 +120,6 @@ Sumbit
         Hello <span id="inputname2"></span>. Welcome to BikeOn. You have succesfully signed up!
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <a href="./loggedinindex.html"><button type="button" class="btn btn-primary">Continue</button></a>
       </div>
     </div>
