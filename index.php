@@ -1,9 +1,24 @@
 <?php
   require_once(__DIR__.'/includes/db.php');
-
+  
+  if($_GET['search']) {
+    $query = 'SELECT * FROM Bikes WHERE bike_name LIKE :search ORDER BY bike_name LIMIT 10';
+    $stmt = $Conn->prepare($query);
+    $stmt->execute([
+    "search" => "%".$_GET['search']."%"
+    ]);
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if(!$results) {
+      echo "No results";
+    }else{
+      foreach($results as $result) {
+        echo "<h2>".$result["bike_name"]."</h2>";
+      }
+    }
+    exit();
+  }
  
   ?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -13,20 +28,21 @@
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
   </head>
+  <body>
   <div class="warning"><p>All our stores remain open throughout the pandemic!</p></div>
 <div class="first-header">
    <div class="container">
      <div class="row">
     <div class="col-md-8 d-flex p-2 d-flex align-items-center" id="header">
-    <h1> BikeOn</h1>
-    <form action="" method="get">
-    <input type="text" placeholder="Search" class="MainSearch" name="search"/>
-    </form>
+    <a href="./index.html"><h1> BikeOn</h1></a>
+<form method="get" >
+    <input type="text" placeholder= "Search" class="MainSearch" name="search"/>
+</form>
   </div>
   <div class="col-md-4" id="icon">
     <h3>Wishlist</h3>
     <h3>Language</h3>
-    <i class="las la-user-circle"></i>
+    <a href="./login.html"><i class="las la-user-circle"></i></div></a>
   </div>
 </div>
 </div>
@@ -54,14 +70,16 @@
     <img src="./images/bike1.jpg" width="100%">
   </div>
   <div class="col-lg-6">
-    <h1>Welcome to BikeOn, the home of all things bikes! </h1>
-    <p->Here you can fins all the infomation you may need to concerning any bikes</p->
+    <h1>Welcome to BikeOn. the home of all things bikes! </h1>
+    <p->Here you can find all the infomation you may need to concerning any bikes</p->
 </div>
 </div>
 </div>
-  
-  
+
+
 </div>
+
+
 <div class="container">
   <div class="owl-carousel owl-theme">
 <div class="row">  
@@ -80,28 +98,43 @@
  <div id="bikeItem">
    <img src="./images/biker.jpg" width="100%"></img>
    <p class="bikename"><?php echo $bike['bike_name'];?></p>
-   <p class="bikeprice"><?php echo $bike['bike_price'];?></p>
+   <p class="bikeprice">Price: <?php echo $bike['bike_price'];?></p>
+   <a href="./items.html"><input type="button"></a>
+        </button>
   </div>
   </div>
 <?php
 }
  ?>
 
+<!-- Button trigger modal -->
 
-
-     
-
-
-
-
-
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">WARNING NOT LOGGED IN</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        YOU CAN'T ACCESS THIS WITHOUT LOGGING IN!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="./login.html"><button type="button" class="btn btn-primary">LOGIN</button></a>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-<footer>
-  <div class="mainfooter">
-</footer>
+
+
+
+
+
+
 
 
 
@@ -118,9 +151,6 @@
     items:1
 })
   </script>
-
+<script src="./script.js"></script>
 </body>
 </html>
-
-
-

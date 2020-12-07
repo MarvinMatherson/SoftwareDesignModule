@@ -22,11 +22,10 @@ $(document).ready(function(){
 }
 $(document).ready(function(){
 $('#textareaID').on('input propertychange', function(){
-  if(this.value.length > 10) {
+  if(this.value.length > 50) {
     $('#exampleModal').modal('show');
-    $("#textareaID").val($("#textareaID").val().substring(0,11));
+    $("#textareaID").val($("#textareaID").val().substring(0,60));
 
 }
 })
 });
-

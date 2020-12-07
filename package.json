@@ -6,11 +6,14 @@
   "author": "Marvin Matherson <55834622+MarvinMatherson@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "add": "^2.0.6",
     "bootstrap": "^4.5.3",
+    "fullcalendar": "^5.4.0",
     "grunt": "^1.3.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-sass": "^3.1.0",
     "node-sass": "^5.0.0",
-    "owl.carousel": "^2.3.4"
+    "owl.carousel": "^2.3.4",
+    "yarn": "^1.22.10"
   }
 }

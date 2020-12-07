@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
-    <link href='/node_modules/fullcalendar/main.css' rel='stylesheet' />
   </head>
   <body>
   <div class="warning"><p>All our stores remain open throughout the pandemic!</p></div>
@@ -52,8 +51,8 @@
   <p>This is the bike description!</p>
   <p>This is the price!</p>
 <form>
-  <textarea placeholder="Would you like to leave a review?" maxlength="500" id="textareaID" disabled></textarea>
-  <h6>You need to <a href="./login.html">sign in</a> to leave reviews.</h6>
+  <textarea placeholder="Would you like to leave a review?" maxlength="500" id="textareaID"></textarea>
+  <input type="button" value="Sumbit">
 </form>
 </div>
 </div>
@@ -62,7 +61,6 @@
 
 
 
-<div id='calendar'></div>
 
 
 
@@ -94,19 +92,8 @@
 
 
 
-<script src='/node_modules/fullcalendar/main.js'></script>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script src="./script.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-    selectable: true
-  });
-  calendar.render();
-});
-
-</script>
