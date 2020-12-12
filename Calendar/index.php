@@ -1,3 +1,23 @@
+<?php
+session_start();
+
+
+
+if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true) {
+  $calender= '<div class="container"><div class="jumbotron" id="payme">
+  <h2>Here you can schedule your events!</h2>
+  Please write your name in the box below, then click the calender, to add yourself in!
+  You will not be able to book unless you have made a payment!</h2>
+  <input id ="pay" type="button" value="payment" onclick="payup()" />
+  <input id="addevent" type="text" value="Enter your name!" name="title" >
+  </div>
+  ';
+} else {
+    $calender='<h6>You need to <a href="../login.php">sign in</a> to book events</h6>';
+}
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -13,13 +33,13 @@
    <div class="container">
      <div class="row">
     <div class="col-md-8 d-flex p-2 d-flex align-items-center" id="header">
-    <a href="../index.html"><h1> BikeOn</h1></a>
+    <a href="../index.php"><h1> BikeOn</h1></a>
     <input type="text" placeholder= "Search" class="MainSearch"></input>
   </div>
   <div class="col-md-4" id="icon">
     <h3>Wishlist</h3>
     <h3>Language</h3>
-    <a href="./login.html"><i class="las la-user-circle"></i></div></a>
+    <a href="../login.php"><i class="las la-user-circle"></i></a>
   </div>
 </div>
 </div>
@@ -48,7 +68,7 @@
   </div>
   <div class="col-lg-6">
     <h1>Welcome to BikeOn. the home of all things bikes! </h1>
-    <p->Here you can find all the infomation you may need to concerning any bikes</p->
+    <p>Here you can find all the infomation you may need to concerning any bikes</p>
 </div>
 </div>
 </div>
@@ -56,22 +76,17 @@
 <body>
 <div class="container">
 
-<div class='jumbotron'>
-<h2>Here you can schedule your events!</h2>
-Please write your name in the box below, then click the calender, to add yourself in!
-You will not be able to book unless you have made a payment!</h2>
-<input id ="pay" type="button" value="payment" onclick="payup()" />
-<input id="addevent" type="text" value="Enter your name!" name="title" disabled>
-</div>
-
+<?php
+  echo $calender;
+?>
 
 
 <div id='calendar'></div>
-</div>
 
 
 
-<div id="pay" tabindex="-1" id='pay'> 
+
+<div id="pay" tabindex="-1"> 
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -94,7 +109,7 @@ You will not be able to book unless you have made a payment!</h2>
 
 
 
-<script src="./script.js"></script>
+<script src="../calender.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
@@ -206,18 +221,8 @@ You will not be able to book unless you have made a payment!</h2>
 
 
 
+  
 
-
+  
 </script>
-
-<script>
-  function payup(){
-  $(document).ready(function(){
-  console.log('ONE BURGER PLS');
-  if{
-  $('#pay').modal('show');
-  });
-})
-  }
-  </script>
 </html>

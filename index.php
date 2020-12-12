@@ -12,7 +12,7 @@
       echo "No results";
     }else{
       foreach($results as $result) {
-        echo "<h2>".$result["bike_name"]."</h2>";
+        echo '<a href="./item.php?id='.$bike_id.'"><input type="button" value="'.$result["bike_name"].'"/></a>';
       }
     }
     exit();
@@ -34,7 +34,7 @@
    <div class="container">
      <div class="row">
     <div class="col-md-8 d-flex p-2 d-flex align-items-center" id="header">
-    <a href="./index.html"><h1> BikeOn</h1></a>
+    <a href="./index.php"><h1> BikeOn</h1></a>
 <form method="get" >
     <input type="text" placeholder= "Search" class="MainSearch" name="search"/>
 </form>
@@ -42,7 +42,7 @@
   <div class="col-md-4" id="icon">
     <h3>Wishlist</h3>
     <h3>Language</h3>
-    <a href="./login.html"><i class="las la-user-circle"></i></div></a>
+    <a href="./login.php"><i class="las la-user-circle"></i></div></a>
   </div>
 </div>
 </div>
@@ -51,7 +51,7 @@
 <div class="container">
 <div class="row">
 <h3>Brands</h3>
-<h3>Services</h3>
+<a href="./Calendar"><h3>Services</h3></a>
 <h3>Infomation</h3>
 <h3>Road Bikes</h3>
 <h3>Mountain Bikes</h3>
@@ -96,16 +96,30 @@
  ?>
  <div class="col-lg-4">
  <div id="bikeItem">
-   <img src="./images/biker.jpg" width="100%"></img>
+   
+  <?php $bike_img = $bike['bike_image'];
+   echo'<img src="./images/'.$bike_img.'width="100%"></img>';
+   
+   echo "<pre>" . var_dump($bike_img) . "</pre>";
+   ?>
+
    <p class="bikename"><?php echo $bike['bike_name'];?></p>
    <p class="bikeprice">Price: <?php echo $bike['bike_price'];?></p>
-   <a href="./items.html"><input type="button"></a>
-        </button>
+
+   <?php
+      $bike_id = $bike["bike_id"];
+      echo '<a href="./item.php?id='.$bike_id.'"><input type="button" value="See More" /></a>';
+   ?>
   </div>
   </div>
 <?php
 }
  ?>
+
+
+
+
+
 
 <!-- Button trigger modal -->
 

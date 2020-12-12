@@ -59,3 +59,22 @@ flex-direction: row;
 textarea{
   resize: none;
 }
+
+.verify{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.verify p{
+color: red;
+}
+#myalert{
+  color: red;
+  text-align: center;
+}
+
+#loggedin{
+  text-align: center;
+  color: red;
+}

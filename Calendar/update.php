@@ -1,5 +1,7 @@
 <?php
 
+require_once(__DIR__.'/../includes/db.php');
+
 $db_config = [
   "db_host" => "localhost",
   "db_name" => "BikeOn",

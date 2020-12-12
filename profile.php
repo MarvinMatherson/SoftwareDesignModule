@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -13,7 +14,7 @@
    <div class="container">
      <div class="row">
     <div class="col-md-8 d-flex p-2 d-flex align-items-center" id="header">
-    <a href="./index.html"><h1> BikeOn</h1></a>
+    <a href="./loggedinindex.html"><h1> BikeOn</h1></a>
     <input type="text" placeholder= "Search" class="MainSearch"></input>
   </div>
   <div class="col-md-4" id="icon">
@@ -21,7 +22,6 @@
     <h3>Language</h3>
     <a href="./login.html"><i class="las la-user-circle"></i></div></a>
   </div>
-</div>
 </div>
 </div>
 <div class="second-header">
@@ -40,75 +40,25 @@
 <p>BikeOn is the leader in professional bike sales and services, trusted by thousands online!</p>
 </div>
 
- <div class="jumbotron">
-  <div class="container">
-  <div class="row">
-  <div class="col-lg-6">
-    <img src="./images/bike1.jpg" width="100%">
-  </div>
-  <div class="col-lg-6">
-    <h1>Welcome to BikeOn. the home of all things bikes! </h1>
-    <p->Here you can find all the infomation you may need to concerning any bikes</p->
-</div>
-</div>
-</div>
-
-
-</div>
-
-
-
-
-
 <div class="container">
-  <div class="owl-carousel owl-theme">
-<div class="row">
-
-  <div class="col-lg-4">
-  <div id="bikeItem">
-      <img src="./images/biker.jpg" width="100%"></img>
-        <h3>Bike name</h3>
-        <p>Bike Infomation</p>
-        <a href="./loggedinitem.html"><input type="button"></a>
-  </div>
-  </div>
-  <div class="col-lg-4">
-    <div id="bikeItem">
-      <img src="./images/biker.jpg" width="100%"></img>
-        <h3>Bike name</h3>
-        <p>Bike Infomation</p>
-        <a href="./loggedinitem.html"><input type="button"></a>
-      </div>
-  </div>
-  <div class="col-lg-4">
-    <div id="bikeItem">
-      <img src="./images/biker.jpg" width="100%"></img>
-        <h3>Bike name</h3>
-        <p>Bike Infomation</p>
-        <a href="./loggedinitem.html"><input type="button"></a>
-  </div>
-  </div>
-</div>
-</div>
-</div>
-<footer>
-  <div class="mainfooter">
-</footer>
+  <div class="jumbotron">
+    <h2>Welcome to your profile. Do you want to log out or delete account?</h2>
+    <a href="./logout.php"><input type="button" value="Logout"></a>
+    <input type="button" value="Delete account" />
 
 
+  </div>
 
+  <script src="./script.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-<script src="/node_modules/jquery/dist/jquery.js"></script>
-<script src="/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
 <script>
-  $('.owl-carousel').owlCarousel({
-    margin:10,
-    loop:true,
-    autoWidth:false,
-    items:1
-})
+  function test(){
+    $.ajax({
+      url:"profile.php", success:function(result)
+      {
+
+      }
+    })
+  }
   </script>
-<script src="./script.js"></script>
-</body>
-</html>
