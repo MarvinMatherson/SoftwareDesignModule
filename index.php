@@ -1,23 +1,32 @@
 <?php
+
+session_start();
+
   require_once(__DIR__.'/includes/db.php');
-  
+
   if($_GET['search']) {
     $query = 'SELECT * FROM Bikes WHERE bike_name LIKE :search ORDER BY bike_name LIMIT 10';
     $stmt = $Conn->prepare($query);
     $stmt->execute([
     "search" => "%".$_GET['search']."%"
-    ]);
+  ]);
+
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if(!$results) {
       echo "No results";
     }else{
       foreach($results as $result) {
-        echo '<a href="./item.php?id='.$bike_id.'"><input type="button" value="'.$result["bike_name"].'"/></a>';
+        echo '<a href="./item.php?id='.$result[bike_id].'"><input type="button" value="'.$result["bike_name"].'"/></a>';
       }
     }
     exit();
   }
- 
+
+  if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true) { //(check index.php for the session details) BUT if the session is_logged_in has a value and is set and is true..... then declare the variable $review with some HTML and set the variable $signup to go to the users profile page..
+    $signupindex = '<a href="./profile.php"><i class="las la-user-circle"></i></div></a>';
+  } else {  //if the session is_logged_in doesn't have a value or isn't set or isn't true, then declare the variable $result as some other HTML. Declare the variable $signup to go to the login page.
+    $signupindex = '<a href="./login.php"><i class="las la-user-circle"></i></div></a>';
+  }
   ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -27,6 +36,12 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
+    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+    Weglot.initialize({
+        api_key: 'wg_6611aad02dd15e52e33aa6552636ad7c4'
+    });
+</script>
   </head>
   <body>
   <div class="warning"><p>All our stores remain open throughout the pandemic!</p></div>
@@ -42,7 +57,7 @@
   <div class="col-md-4" id="icon">
     <h3>Wishlist</h3>
     <h3>Language</h3>
-    <a href="./login.php"><i class="las la-user-circle"></i></div></a>
+<?php echo $signupindex; ?>
   </div>
 </div>
 </div>
@@ -62,7 +77,32 @@
 <div class="guarantee">
 <p>BikeOn is the leader in professional bike sales and services, trusted by thousands online!</p>
 </div>
+<?php
 
+ $loggediname = $_SESSION['user_data']['user_name'];
+ $loggedinmessage = $_SESSION['message'];
+
+
+if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true){
+
+echo '
+  <div class="container">
+<div class="alert alert-success" role="alert">'
+    .$loggediname." ".$loggedinmessage.'
+</div>
+</div>
+';
+
+} else {
+  echo '
+  <div class="container">
+  <div class="alert alert-light" role="alert">
+   There is no one logged in at the current time.
+  </div>
+  </div>
+  ';
+}
+?>
  <div class="jumbotron">
   <div class="container">
   <div class="row">
@@ -82,39 +122,43 @@
 
 <div class="container">
   <div class="owl-carousel owl-theme">
-<div class="row">  
+<div class="row">
 
 
 
 
 <?php
-  $stmt = $Conn->prepare('SELECT * FROM Bikes');
-  $stmt->execute();
-  $bikes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $stmt = $Conn->prepare('SELECT * FROM Bikes'); //This is your database connection,  copy these three lines of code and change 'bikes' to your database, here we are preparing the query
+  $stmt->execute(); //here we are executing the query
+  $bikes = $stmt->fetchAll(PDO::FETCH_ASSOC); //here we are fetching the results of our query nd putting them into an array.
 
-  foreach ($bikes as $key => $bike){
+  foreach ($bikes as $key => $bike){   //this will be different for your design, but for each item in our query, display them onto our website using HTML (how u display it will be different)
  ?>
  <div class="col-lg-4">
  <div id="bikeItem">
-   
-  <?php $bike_img = $bike['bike_image'];
-   echo'<img src="./images/'.$bike_img.'width="100%"></img>';
-   
-   echo "<pre>" . var_dump($bike_img) . "</pre>";
-   ?>
-
-   <p class="bikename"><?php echo $bike['bike_name'];?></p>
-   <p class="bikeprice">Price: <?php echo $bike['bike_price'];?></p>
-
+   <img src="./images/<?php echo $bike['bike_image'];?>" width="100%"></img>
+   <div class="biketext">
+   <h3><?php echo $bike['bike_name'];   //bike_item is a column in my database?></p>
+   <p>Price: <?php echo $bike['bike_price']; //bike_price is a column in my database?></p>
    <?php
-      $bike_id = $bike["bike_id"];
-      echo '<a href="./item.php?id='.$bike_id.'"><input type="button" value="See More" /></a>';
+      $bike_id = $bike["bike_id"]; //declaring the $bike_id varibale with the bike_id (that is my primary key in the table)
+      echo '<a href="./item.php?id='.$bike_id.'"><input type="button" class="infobutton" value="See More" /></a>';  //THIS IS HOW WE MAKE OUR DYNAMIC INDIVIDUAL LINKS!!  Echo a link that goes to our item page and concatanate  our bike_id variable (delcared in the line above) at the end. (just like when we did our tv api and we concatanate the users input) As we have a different id in each column, it will show a different id at the end of the url for each item.
    ?>
+  </div>
   </div>
   </div>
 <?php
 }
  ?>
+ <li>
+     <?php
+         $Review = new Review($Conn);
+         $avg_rating = $Review->calculateRating($_GET['id']);
+         $avg_rating = round($avg_rating['avg_rating'], 1);
+     ?>
+     <li><i class="fas fa-star-half-alt"></i> <?php echo $avg_rating; ?> Stars</li>
+ </li>
+
 
 
 

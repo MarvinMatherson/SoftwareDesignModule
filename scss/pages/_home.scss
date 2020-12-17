@@ -7,18 +7,42 @@ margin-top: 20px;
 margin-bottom: 20px;
 width: 100%;
 height: auto;
-background-color:red;
 border-radius: 10px;
+border: 1px solid grey;
+padding-left: 50px;
+padding-right: 50px;
+padding-top:20px;
 }
 
-#bikeItem button{
-  background-color:#00ACC1;
-  margin-bottom: 10px;
-  border: none;
+
+
+
+
+#bikeItem h3{
+  font-family:'Biryani';
+}
+
+#bikeItem p{
+  font-family: 'Montserrat';
+}
+
+
+.biketext{
+  margin-top: 30px;
+}
+
+.infobutton{
+font-size: 15px;
+border-radius: 5px;
+border: none;
+width: 100%;
+margin-top: 10px;
+margin-bottom: 10px;
+height: 50px;
+
 }
 
 
 .modal{
   text-align: center;
 }
-

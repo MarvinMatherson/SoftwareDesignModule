@@ -1,20 +1,57 @@
-#mainitem{
-margin-top: 50px;
+#Myitem{
+
+
 }
 
-
-
-#mainitem img{
-    border-radius: 10px;;
+#itemimg{
 }
+
+#itemimg img{
+  padding-top: 80px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 .bikeName{
-text-align: center;
-color: red;
+  color: black;
+}
+
+
+.price{
+  border-radius: 5px;
+  font-size: 30px;
 }
 
 #textareaID{
-    text-align: center;
-    width: 100%;
-    resize: none;
-    height:100px;
+border-radius: 10px;
+font-size: 15px;
+padding-left: 10px;
+width: 100%;
+resize: none;
+height: 100px;
+}
+
+
+#info{
+margin-top: 100px;
+height:100%;
+padding-left: 10px;
+}
+
+
+.sub{
+margin-top: 10px;
+margin-left: 290px;
+border-radius: 5px;
+border: none;
+
+
+}
+
+#buyme{
+  border-radius: 5px;
+border: none;
+width: 100%;
+margin-top: 10px;
+height: 50px;
 }

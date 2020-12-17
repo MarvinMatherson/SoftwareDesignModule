@@ -1,5 +1,5 @@
 <?php
-  require_once(__DIR__.'./includes/db.php')
+  require_once(__DIR__.'/includes/db.php')
  ?>
 
 <!DOCTYPE html>
@@ -57,14 +57,14 @@
   <h1 class="mt-5 mb-5">Create new Bike</h1>
 <?php
 
-if($_POST['bike_name']) {
+
+if($_POST['bike_review']) {
   // process the form
   $data = [
-    'bike_name' => $_POST['bike_name'],
-    'bike_price' => $_POST['bike_price']
+    'bike_review' => $_POST['bike_review']
   ];
 
-  $query = 'INSERT INTO Bikes (bike_name, bike_price) VALUES(:bike_name, :bike_price)';
+  $query = 'UPDATE Bikes SET bike_review = :bike_review WHERE bike_id=1'; 
   $stmt = $Conn->prepare($query);
   $stmt->execute($data);
 
@@ -80,11 +80,19 @@ if($_POST['bike_name']) {
   <form action="" method="post">
     <div class="form-group">
       <label for="exampleInputEmail1">Bike Name</label>
-      <input type="text" class="form-control" id="bikename"  name="bike_name" placeholder="Enter Bike Name">
+      <input type="text" class="form-control" id="bikename"  name="bike_review" placeholder="Enter Bike Name">
     </div>
 <div class="form-group">
       <label for="exampleInputEmail1">Bike Price</label>
       <input type="text" class="form-control" id="bikeprice"  name="bike_price" placeholder="Enter Bike Price">
+</div>
+<div class="form-group">
+      <label for="exampleInputEmail1">Bike Description</label>
+      <input type="text" class="form-control" id="bikeprice"  name="bike_description" placeholder="Enter Bike description">
+</div>
+<div class="form-group">
+      <label for="exampleInputEmail1">Bike Dimensions</label>
+      <input type="text" class="form-control" id="bikeprice"  name="bike_dimensions" placeholder="Enter Bike Dimensions in the format '20kg, 180cm'">
 </div>
     <button type="submit" class="btn btn-primary">Create</button>
   </form>

@@ -1,12 +1,12 @@
 <?php
-  session_start(); 
+  session_start();
   require_once(__DIR__.'/includes/db.php');
 ?>
 
 <?php
   if($_POST['register']){   //this is gonna be painful to explain ok... if the 'password' form is 'method post' sumbitted, hash the pasword with the latest most secure password hashing algorithm, then insert the username and the now hashed password into the database.
     $sec = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $query = 'INSERT INTO users (user_name, user_pass) VALUES (:user_name, :user_pass)'; 
+    $query = 'INSERT INTO users (user_name, user_pass) VALUES (:user_name, :user_pass)';
     $stmt = $Conn->prepare($query);
     $stmt->execute([
       'user_name'=>$_POST['username'],
@@ -19,7 +19,7 @@
   <button type="button" class="close" data-dismiss= "alert" aria-label="Close">
 </div>
 <?php
-  }else if($_POST['login']){ //oh god not again ok here we go....  PT. 1: if the 'login' form is 'method post' submitted, then select the username in the database that is equal to the one entered in the form. 
+  }else if($_POST['login']){ //oh god not again ok here we go....  PT. 1: if the 'login' form is 'method post' submitted, then select the username in the database that is equal to the one entered in the form.
     $query = 'SELECT * FROM users WHERE user_name = :user_name';
     $stmt = $Conn->prepare($query);
     $stmt->execute([
@@ -29,8 +29,11 @@
     if($user){  //P2: Now it gets complicated. If we have a succesful username (see PT. 1) then declare the variable $check, with our verified password (using the most secure password veryfiying algoritm ) and our username.
       $check = password_verify($_POST['password'], $user['user_pass']);
       if($check){ //if $check has a verified password AND a verified username, then name our session as _is_logged_in and then set it to true. Also declare the variable $loggedin (which we can use later on in our document).
-        $_SESSION['is_logged_in'] = true; 
+        $_SESSION['is_logged_in'] = true;
+        $_SESSION['user_data'] = $user;
         $loggedin = 'logged in';
+        $_SESSION['message']= "is currently logged in.";
+        header("Location: ./index.php");
       }else{ //If we didn't have a verified password and matching username declared into $check, then declare the variable $myerror1 (which we are gonna use later)
           $myerror1 = 'username or password incorrect';
       }
@@ -94,12 +97,12 @@
   echo $myerror2;
 
 ?>
-<p id="loggedin"><?php echo $loggedin //echo out the value of $loggedin. This value was added ealier up. ?></p> 
+<p id="loggedin"><?php echo $loggedin //echo out the value of $loggedin. This value was added ealier up. ?></p>
 </div>
 
 
   <div class="container">
-    
+
     <div class="jumbotron" id="join">
 <div class="row">
 <div class="col-lg-6">
