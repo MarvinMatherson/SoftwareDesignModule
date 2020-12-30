@@ -15,6 +15,7 @@
 
 
 .first-header{
+    border : 1px solid red;
   background-color:#00ACC1;
   height: auto;
   display:flex;
@@ -22,22 +23,24 @@
   flex-direction: row-reverse;
   align-items: center;
   flex-direction: row;
- 
+
 }
 
 #header{
-display: flex;
-justify-content: flex-start;
+
+
 }
 
 #search{
+  border : 1px solid red;
   display: flex;
   align-items: center;
 }
 
 
 .MainSearch{
-  width: 100%;
+  border: 5px solid red;
+  width: 150%;
   height: 40px;
   border-radius: 10px;
   border: none;
@@ -120,4 +123,3 @@ color: white;
   width: 50%;
 }
 }
-

@@ -27,113 +27,84 @@ session_start();
   } else {  //if the session is_logged_in doesn't have a value or isn't set or isn't true, then declare the variable $result as some other HTML. Declare the variable $signup to go to the login page.
     $signupindex = '<a href="./login.php"><i class="las la-user-circle"></i></div></a>';
   }
-
-
-
-
-
   ?>
-
-
-  <!DOCTYPE html>
-  <html lang="en" dir="ltr">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="/css/styles.css">
-      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-      <script src="https://kit.fontawesome.com/ce87640ca1.js" crossorigin="anonymous"></script>
-
-      <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
-  <script>
-      Weglot.initialize({
-          api_key: 'wg_6611aad02dd15e52e33aa6552636ad7c4'
-      });
-  </script>
-    </head>
-    <body>
-
-      <div class="logo">
-        <div class="container">
-      <a href="./index.php"><img src="./images/logo4.png" width="30%"></img></a>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
+    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+    Weglot.initialize({
+        api_key: 'wg_6611aad02dd15e52e33aa6552636ad7c4'
+    });
+</script>
+  </head>
+  <body>
+  <div class="warning"><p>All our stores remain open throughout the pandemic!</p></div>
+<div class="first-header">
+   <div class="container">
+     <div class="row">
+    <div class="col-md-8 d-flex p-2 d-flex align-items-center" id="header">
+    <a href="./index.php"><h1> BikeOn</h1></a>
+<form method="get" >
+    <input type="text" placeholder= "Search" class="MainSearch" name="search"/>
+</form>
   </div>
+  <div class="col-md-4" id="icon">
+    <h3>Wishlist</h3>
+    <h3>Language</h3>
+<?php echo $signupindex; ?>
   </div>
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">
-          <i class="fas fa-bars" style="color:#fff; font-size:28px;"></i>
-      </span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="./item.php?id=2">Mountain</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./item.php?id=15">BMX </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./item.php?id=1">Road</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <form action="post" class="searchers">
-          <input type="search" class="bikesearch" name="search" placeholder="Find a bike...">
-          <input type="submit" value="Search" class="mainsearch">
-        </form>
-        </div>
-            <a href="./profile.php"><?php echo $signupindex ?></i></a>
-        </form>
-      </div>
-    </div>
-    </nav>
-
-
-
-
-
-
-
-
+</div>
+</div>
+</div>
+<div class="second-header">
+<div class="container">
+<div class="row">
+<h3>Brands</h3>
+<a href="./Calendar"><h3>Services</h3></a>
+<h3>Infomation</h3>
+<h3>Road Bikes</h3>
+<h3>Mountain Bikes</h3>
+<h3>BMX bikes</h3>
+</div>
+</div>
+</div>
+<div class="guarantee">
+<p>BikeOn is the leader in professional bike sales and services, trusted by thousands online!</p>
+</div>
 <?php
 
  $loggediname = $_SESSION['user_data']['user_name'];
  $loggedinmessage = $_SESSION['message'];
 
 
-if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true){
 
-echo '
-<div class="alert alert-success" role="alert">'
-    .$loggediname." ".$loggedinmessage.'
-</div>
-';
-
-} else {
-  echo '
-  <div class="alert alert-LIGHT" role="alert" mt-3>
-   There is no one logged in at the current time.
-  </div>
-  ';
-}
 ?>
 
 
- <div class="jumbotron" id="welcome">
-   <div class="container">
+<div class="alert alert-success" role="alert">
+ <?php echo $_SESSION['user_data']['user_name'].' '.$_SESSION['message']; ?>
+</div>
+ <div class="jumbotron">
+  <div class="container">
   <div class="row">
-  <div class="col-lg-6" >
-    <img src="./images/roadbike.png" width="100%">
+  <div class="col-lg-6">
+    <img src="./images/bike1.jpg" width="100%">
   </div>
   <div class="col-lg-6">
     <h1>Welcome to BikeOn. the home of all things bikes! </h1>
-    <p>BikeOn is the top seller of premium bikes and services. </p>
-</div>
+    <p->Here you can find all the infomation you may need to concerning any bikes</p->
 </div>
 </div>
 </div>
 
+
+</div>
 
 
 <div class="container">
@@ -159,10 +130,6 @@ echo '
    <?php
       $bike_id = $bike["bike_id"]; //declaring the $bike_id varibale with the bike_id (that is my primary key in the table)
       echo '<a href="./item.php?id='.$bike_id.'"><input type="button" class="infobutton" value="See More" /></a>';  //THIS IS HOW WE MAKE OUR DYNAMIC INDIVIDUAL LINKS!!  Echo a link that goes to our item page and concatanate  our bike_id variable (delcared in the line above) at the end. (just like when we did our tv api and we concatanate the users input) As we have a different id in each column, it will show a different id at the end of the url for each item.
-
-
-
-
    ?>
   </div>
   </div>
@@ -170,7 +137,14 @@ echo '
 <?php
 }
  ?>
-
+ <li>
+     <?php
+         $Review = new Review($Conn);
+         $avg_rating = $Review->calculateRating($_GET['id']);
+         $avg_rating = round($avg_rating['avg_rating'], 1);
+     ?>
+     <li><i class="fas fa-star-half-alt"></i> <?php echo $avg_rating; ?> Stars</li>
+ </li>
 
 
 
@@ -200,7 +174,28 @@ echo '
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script src="/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+<script>
+  $('.owl-carousel').owlCarousel({
+    margin:10,
+    loop:true,
+    autoWidth:false,
+    items:1
+})
+  </script>
+<script src="./script.js"></script>
 </body>
 </html>

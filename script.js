@@ -16,10 +16,18 @@ function mysignup(){
 
 $(document).ready(function(){
 $('#textareaID').on('input propertychange', function(){
-  if(this.value.length > 50) {
+  if(this.value.length > 20) {
     $('#exampleModal').modal('show');
-    $("#textareaID").val($("#textareaID").val().substring(0,60));
+    $("#textareaID").val($("#textareaID").val().substring(0,21));
 
 }
 })
 });
+
+
+var price = document.querySelector('.pricy').textContent;
+console.log(price);
+
+if (price >= 30) {
+
+}
