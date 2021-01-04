@@ -251,7 +251,7 @@ echo $postit;
     $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC); //here we are fetching the results of our query nd putting them into an array.
     foreach ($reviews as $key => $review){   //this will be different for your design, but for each item in our query, display them onto our website using HTML (how u display it will be different)
    ?>
-   <div id="bikeItem">
+   <div id="bikeItemReview">
      <p><?php echo$review['user_id'];?> says: </p>
      <p> <?php echo $review['bike_review']; //bike_price is a column in my database?></p>
    </div>

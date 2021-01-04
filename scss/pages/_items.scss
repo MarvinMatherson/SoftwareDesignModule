@@ -4,12 +4,13 @@
 }
 
 #itemimg{
+
 }
 
 #itemimg img{
-  padding-top: 80px;
   padding-left: 30px;
   padding-right: 30px;
+ margin-bottom:1200px;
 }
 
 .bikeName{
@@ -55,3 +56,20 @@ width: 100%;
 margin-top: 10px;
 height: 50px;
 }
+
+#bikeItemReview{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid grey;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top:20px;
+  word-wrap:break-word;;
+  }
+  
+  
+  

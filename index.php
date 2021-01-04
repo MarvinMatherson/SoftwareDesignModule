@@ -79,7 +79,7 @@ session_start();
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <form action="post" class="searchers">
-          <input type="search" class="bikesearch" name="search" placeholder="Find a bike...">
+          <input type="search" class="MainSearch" name="search" placeholder="Find a bike...">
           <input type="submit" value="Search" class="mainsearch">
         </form>
         </div>

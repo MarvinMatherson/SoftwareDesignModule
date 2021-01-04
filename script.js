@@ -16,9 +16,9 @@ function mysignup(){
 
 $(document).ready(function(){
 $('#textareaID').on('input propertychange', function(){
-  if(this.value.length > 20) {
+  if(this.value.length > 500) {
     $('#exampleModal').modal('show');
-    $("#textareaID").val($("#textareaID").val().substring(0,21));
+    $("#textareaID").val($("#textareaID").val().substring(0,501));
 
 }
 })
